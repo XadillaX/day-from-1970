@@ -1,6 +1,6 @@
 {
   "name": "day-from-1970",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Calculate out witch day, month, year and week from 1970.1.1 via one timestamp.",
   "main": "index.js",
   "directories": {
