@@ -1,7 +1,7 @@
 {
   "name": "day-from-1970",
   "version": "0.1.0",
-  "description": "Calculate out witch day, month, year and week from 1970.1.1 via one timestamp.",
+  "description": "Calculate out which day, month, year and week from 1970.1.1 via one timestamp.",
   "main": "df1970.js",
   "directories": {
     "test": "test"

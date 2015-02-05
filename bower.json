@@ -1,0 +1,25 @@
+{
+  "name": "day-from-1970",
+  "version": "0.1.0",
+  "homepage": "https://github.com/XadillaX/day-from-1970",
+  "authors": [
+    "XadillaX <admin@xcoder.in>"
+  ],
+  "description": "Calculate out which day, month, year and week from 1970.1.1 via one timestamp.",
+  "main": "df1970.min.js",
+  "keywords": [
+    "timestamp",
+    "day",
+    "week",
+    "month",
+    "year"
+  ],
+  "license": "GPLv2",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
