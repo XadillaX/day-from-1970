@@ -1,8 +1,8 @@
 {
   "name": "day-from-1970",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Calculate out witch day, month, year and week from 1970.1.1 via one timestamp.",
-  "main": "index.js",
+  "main": "df1970.js",
   "directories": {
     "test": "test"
   },
@@ -25,5 +25,9 @@
   "bugs": {
     "url": "https://github.com/XadillaX/day-from-1970/issues"
   },
-  "homepage": "https://github.com/XadillaX/day-from-1970"
+  "homepage": "https://github.com/XadillaX/day-from-1970",
+  "devDependencies": {
+    "uglify-js": "^2.4.16"
+  }
 }
+
