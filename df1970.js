@@ -35,7 +35,6 @@ var df1970 = (function() {
         }
 
         timestamp += (timezone * 3600);
-        console.log(timestamp);
 
         if(undefined === first) first = 7;
 
