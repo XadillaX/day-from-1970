@@ -53,7 +53,7 @@ describe("Test", function() {
         var week = 1;
         var month = 1;
         var year = 1;
-        var cm = moment.unix(current).utc(8);
+        var cm = moment.unix(current).utcOffset(8 * 60);
         var pm = null;
 
         while(cm.year() !== 2222) {
@@ -67,7 +67,7 @@ describe("Test", function() {
 
             current += 86400;
             pm = cm;
-            cm = moment.unix(current).utc(8);
+            cm = moment.unix(current).utcOffset(8 * 60);
             if(cm.year() !== pm.year()) {
                 year++;
                 month++;
