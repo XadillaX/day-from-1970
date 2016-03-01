@@ -71,30 +71,37 @@ var df1970 = (function() {
         tday %= 1461;
 
         if(startyear === 1970) {
-            // Most 3 years left...
             if(tday >= 365 * 2 + 366) {
+                // Most 3 years left...
                 tyear += 3;
                 tday -= (365 * 2 + 366);
-            }
-
-            // Or 2 years left...
-            if(tday >= 365 * 2) {
+            } else if(tday >= 365 * 2) {
+                // Or 2 years left...
                 tyear += 2;
                 tday -= (365 * 2);
-            }
-
-            // Or 1 year...
-            if(tday >= 365) {
+            } else if(tday >= 365) {
+                // Or 1 year...
                 tyear += 1;
                 tday -= 365;
             }
         } else {
-            tyear += parseInt(tday / 365);
-            tday %= 365;
+            if(tday >= 365 * 3) {
+                // Most 3 years left...
+                tyear += 3;
+                tday -= (365 * 3);
+            } else if(tday >= 365 * 2) {
+                // Or 2 years left...
+                tyear += 2;
+                tday -= (365 * 2);
+            } else if(tday >= 365) {
+                // Or 1 year...
+                tyear += 1;
+                tday -= 365;
+            }
         }
 
         // If `tyear % 4` equals to 2, that means this year is a loop year.
-        if((1970 + tyear) % 400 ===0 || ((1970 + tyear) % 4 === 0 && (1970 + tyear) % 100 !== 0)) {
+        if((1970 + tyear) % 400 === 0 || ((1970 + tyear) % 4 === 0 && (1970 + tyear) % 100 !== 0)) {
             month[2] = 29;
         }
 

@@ -1,29 +1,48 @@
 /**
  * Created by XadillaX on 2014/4/8.
  */
-var df1970 = require("../");
+require("should");
+var moment = require("moment");
+var df = require("../");
 
-var t = 1420041600;
-var list1 = [];
-var list2 = [];
-for(var i = 0; i < 10; i++) {
-    list1.push(df1970(t, 0));
-    list2.push(df1970(t));
-    t += 86400;
-}
+describe("Test", function() {
+    it("should finish a loop", function() {
+        this.timeout(20000);
+        var current = 23934;
+        var day = 1;
+        var week = 1;
+        var month = 1;
+        var year = 1;
+        var cm = moment.unix(current);
+        var pm = null;
 
-console.log(list1);
-console.log(list2);
+        while(cm.year() !== 2222) {
+            var tmp = df(cm.unix(), 0);
 
-var t = 57600;
-var list3 = [];
-var list4 = [];
-for(var i = 0; i < 10; i++) {
-    list3.push(df1970(t, 0));
-    list4.push(df1970(t));
-    t += 86400;
-}
+            // console.log(tmp, current, cm.format());
+            tmp.day.should.be.eql(day);
+            tmp.week.should.be.eql(week);
+            tmp.month.should.be.eql(month);
+            tmp.year.should.be.eql(year);
 
-console.log(list3);
-console.log(list4);
-
+            current += 86400;
+            pm = cm;
+            cm = moment.unix(current);
+            if(cm.year() !== pm.year()) {
+                year++;
+                month++;
+                if(cm.day() === 0) week++;
+                day++;
+            } else if(cm.month() !== pm.month()) {
+                month++;
+                if(cm.day() === 0) week++;
+                day++;
+            } else if(cm.week() !== pm.week()) {
+                week++;
+                day++;
+            } else {
+                day++;
+            }
+        }
+    });
+});
