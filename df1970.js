@@ -49,31 +49,52 @@ var df1970 = (function() {
 
         var tmon = 0;
         var tyear = 0;
+        var startyear = 1970;
 
-        // every four years have one leap year, that is 1461 days.
+        // there are 11323 days from 1970-1-1 to 2000-12-31
+        if(tday > 11323) {
+            tyear += 31;
+            tday -= 11323;
+            startyear = 2001;
+        }
+
+        // every 400 years have 97 leap years, that is 146097 days.
+        tyear += parseInt(tday / 146097) * 400;
+        tday %= 146097;
+
+        // then every 100 years have 24 leap years, that is 36524 days.
+        tyear += parseInt(tday / 36524) * 100;
+        tday %= 36524;
+
+        // then every 4 years have 1 leap year, that is 1461 days.
         tyear += parseInt(tday / 1461) * 4;
         tday %= 1461;
 
-        // Most 3 years left...
-        if(tday >= 365 * 2 + 366) {
-            tyear += 3;
-            tday -= (365 * 2 + 366);
-        }
+        if(startyear === 1970) {
+            // Most 3 years left...
+            if(tday >= 365 * 2 + 366) {
+                tyear += 3;
+                tday -= (365 * 2 + 366);
+            }
 
-        // Or 2 years left...
-        if(tday >= 365 * 2) {
-            tyear += 2;
-            tday -= (365 * 2);
-        }
+            // Or 2 years left...
+            if(tday >= 365 * 2) {
+                tyear += 2;
+                tday -= (365 * 2);
+            }
 
-        // Or 1 year...
-        if(tday >= 365) {
-            tyear += 1;
-            tday -= 365;
+            // Or 1 year...
+            if(tday >= 365) {
+                tyear += 1;
+                tday -= 365;
+            }
+        } else {
+            tyear += parseInt(tday / 365);
+            tday %= 365;
         }
 
         // If `tyear % 4` equals to 2, that means this year is a loop year.
-        if(tyear % 4 === 2) {
+        if((1970 + tyear) % 400 ===0 || ((1970 + tyear) % 4 === 0 && (1970 + tyear) % 100 !== 0)) {
             month[2] = 29;
         }
 
@@ -119,4 +140,3 @@ var df1970 = (function() {
 if(typeof df1970 !== "function") {
     console.warn("Broken function of df1970.");
 }
-
