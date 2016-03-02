@@ -1,5 +1,12 @@
 # Day From 1970
 
+[![Day From 1970](http://img.shields.io/npm/v/day-from-1970.svg)](https://www.npmjs.org/package/day-from-1970)
+[![Day From 1970](http://img.shields.io/npm/dm/day-from-1970.svg)](https://www.npmjs.org/package/day-from-1970)
+[![Build Status](https://travis-ci.org/XadillaX/day-from-1970.svg?branch=master)](https://travis-ci.org/XadillaX/day-from-1970)
+[![Coverage Status](https://img.shields.io/coveralls/XadillaX/day-from-1970/master.svg)](https://coveralls.io/r/XadillaX/day-from-1970?branch=master)
+[![License](https://img.shields.io/npm/l/day-from-1970.svg?style=flat)](https://www.npmjs.org/package/day-from-1970)
+[![Dependency Status](https://david-dm.org/XadillaX/day-from-1970.svg)](https://david-dm.org/XadillaX/day-from-1970)
+
 A node.js module of calculating out witch day, month, year and week from 1970.1.1 via one timestamp.
 
 ## Application Scenario
